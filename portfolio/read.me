@@ -1,0 +1,34 @@
+Modern Portfolio WebsiteThis repository contains the code for a dynamic and modern personal portfolio website. It's designed to showcase your professional experience, skills, certifications, and projects in a clean, multi-page format. The website includes a functional contact form that sends messages directly to your email.✨ FeaturesMulti-Page Navigation: Separate dedicated pages for "About," "Experience," "Certifications," "Projects," and "Contact."Dynamic Content: All portfolio content (personal details, skills, experience, certifications, projects) is loaded from a central Python data file, making updates easy.Integrated Contact Form: A functional contact form that sends messages directly to your specified email address using a local Python server.Modern Styling & Animations: Utilizes CSS animations for a smooth and engaging user experience.Easy Content Management: Update your portfolio content by modifying a simple Python dictionary.Secure Credential Handling: Sensitive email credentials are kept in a separate configuration file.🚀 Project StructureThe project consists of the following files:index.html: The homepage of your portfolio, displaying your bio and contact info.experience.html: Details your professional work experience.certifications.html: Lists your certifications with links to verify them.projects.html: Showcases your projects with brief descriptions and links.contact.html: Contains the contact form for visitors to send you messages.animations_css.css: Defines various CSS keyframe animations and utility classes.server.py: A Python script that acts as a local web server to serve your HTML/CSS/JS files and process contact form submissions.data.py: A Python file containing all your portfolio's structured content (personal details, skills, experience, certifications, projects). This is where you'll update your information.config.py: A Python file to securely store sensitive information like your email credentials.🛠️ PrerequisitesBefore you can run this website, you'll need:Python 3.x: Download and install Python from python.org.Google Account (for email sending): If you plan to use Gmail's SMTP, your Google account must have 2-Step Verification enabled to generate an App Password.⚙️ Local Setup and Running the WebsiteFollow these steps to get your portfolio website running on your local machine:Save all files:Create a new folder for your project (e.g., my-portfolio).Save all the HTML files (index.html, experience.html, certifications.html, projects.html, contact.html), animations_css.css, server.py, data.py, and config.py into this folder.Configure config.py:Open config.py.SENDER_EMAIL: Set this to the email address you want the messages to be sent from (e.g., a dedicated email for your portfolio).SENDER_PASSWORD: This MUST be a Google App Password if you're using Gmail. You cannot use your regular Gmail password.Go to your Google Account > Security > App passwords.Generate a new 16-character app password.Copy and paste this password here.RECEIVER_EMAIL: Set this to your personal email address where you want to receive the contact messages.# config.py
+
+# --- EMAIL CONFIGURATION ---
+SENDER_EMAIL = 'your-automated-email@gmail.com' # Replace with your sending email
+SENDER_PASSWORD = 'your-16-character-app-password' # Replace with your generated App Password
+RECEIVER_EMAIL = 'your-personal-email@gmail.com' # Replace with your receiving email
+Update Your Content in data.py:Open data.py.Modify the portfolio_data dictionary to reflect your actual information:personal: Your name, contact details, photo URL, and professional summary.skills: Your technical and soft skills.experience: Your work experience entries (title, duration, bullet points).certifications: Your certifications (title, issuer, and crucially, link to the certificate).projects: Your project details (title, description, and details_link to a separate project page if you create one).# data.py snippet (showing structure for updates)
+
+portfolio_data = {
+    "personal": {
+        "name": "Ishaan Markanday",
+        "phone": "+61 426 546 532",
+        "email": "markandayishaan@gmail.com",
+        "photo_url": "https://via.placeholder.com/150",
+        "summary": "Highly motivated Master's student...",
+        "about_intro": "I am a highly motivated Master's student..."
+    },
+    "skills": {
+        "technical": [
+            "Python", "MySQL", "AWS"
+        ],
+        "soft": [
+            "Team Collaboration", "Problem Solving"
+        ]
+    },
+    # ... (rest of experience, certifications, projects)
+}
+Run the Server:Open your terminal or command prompt.Navigate to the folder where you saved all your files using the cd command:cd path/to/your/my-portfolio-folder
+Run the Python server script:python server.py
+You should see output similar to: Starting server on port 8000...Access Your Website:Open your web browser.Go to the address: http://localhost:8000/You should now see your portfolio website, and you can navigate between pages.Test the Contact Form:Go to the "Contact" page.Fill out the form and submit it.Check your RECEIVER_EMAIL inbox. You should receive an email with the submitted details. The "Reply" function in your email client should correctly target the sender's email from the form.☁️ Permanent Hosting (Making it Always Online)To make your website permanently accessible to anyone, even when your computer is off, you need to deploy it to a hosting service. This typically involves two parts:1. Static Website Hosting (HTML, CSS, JS)Your HTML, CSS, and JavaScript files can be hosted for free and very reliably.GitHub Pages: Push your project to a public GitHub repository and enable GitHub Pages in your repository settings.Netlify: Connect your GitHub repository to Netlify for continuous deployment and a very generous free tier.2. Python Backend Hosting (for Contact Form)Your server.py script needs a dedicated environment to run continuously.PythonAnywhere: A web host specifically designed for Python applications. You can upload your server.py, data.py, and config.py files and configure it to run as a web application. They offer a free "Hacker" plan for small projects.Heroku: A "Platform as a Service" (PaaS) that allows you to deploy Python applications by pushing your code to a Git repository. It has a free tier that might require some configuration to keep the server awake if inactive.Crucial Step: Once your Python backend is deployed to a service like PythonAnywhere or Heroku, it will have a public URL (e.g., https://your-app-name.herokuapp.com). You must update the action attribute in your contact.html file to point to this new live URL:<!-- In contact.html -->
+<form action="https://your-live-backend-url.com/submit_form" method="POST">
+    <!-- ... form fields ... -->
+</form>
+🤝 ContributingFeel free to modify and extend this portfolio to suit your needs.
