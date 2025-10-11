@@ -185,7 +185,7 @@ class PortfolioServer(SimpleHTTPRequestHandler):
             self.send_error(404, "Page Not Found")
 
 def run_server():
-    server_address = ('', 8000)
+    server_address = ('0.0.0.0', int(os.environ.get('PORT', 10000)))
     # Ensure the server runs from the directory where all these files are located
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     httpd = HTTPServer(server_address, PortfolioServer)
