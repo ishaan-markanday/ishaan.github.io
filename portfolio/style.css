@@ -2,23 +2,21 @@
 
 /* Define CSS Variables for easy theme modification */
 :root {
-    --color-background-dark: #0d1117; /* Main very dark background */
-    --color-background-medium: #1a2a3a; /* Darker blue-grey for sections */
-    --color-text-light: #e0e6eb; /* Light grey for general text */
-    --color-accent-blue: #00f0ff; /* Bright neon blue */
-    --color-accent-green: #00ff99; /* Vibrant neon green */
-    --color-text-secondary-blue: #b3ecff; /* Lighter neon blue */
-    --color-text-secondary-grey: #c9d1d9; /* Slightly brighter grey for lists */
+    --color-background-dark: #0d1117;
+    --color-background-medium: #1a2a3a;
+    --color-text-light: #e0e6eb;
+    --color-accent-blue: #00f0ff;
+    --color-accent-green: #00ff99;
+    --color-text-secondary-blue: #b3ecff;
+    --color-text-secondary-grey: #c9d1d9;
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Poppins', sans-serif;
     --font-mono: 'Roboto Mono', monospace;
 }
 
-/* Import tech-inspired fonts: Roboto Mono for monospaced elements, Poppins for general text */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
 
-/* Basic Body and Typography */
 body {
     font-family: var(--font-body);
     margin: 0;
@@ -27,7 +25,7 @@ body {
     color: var(--color-text-light);
     line-height: 1.6;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+    overflow-x: hidden;
 }
 
 .container {
@@ -36,16 +34,15 @@ body {
     padding: 0 25px;
 }
 
-/* Header and Navigation */
 .header {
-    background: rgba(13, 17, 23, 0.95); /* Semi-transparent dark header */
+    background: rgba(13, 17, 23, 0.95);
     padding: 20px 0;
-    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.15); /* Subtle cyber glow shadow */
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(8px); /* Stronger blur for futuristic glass effect */
-    border-bottom: 2px solid var(--color-accent-blue); /* Neon blue bottom border */
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--color-accent-blue);
 }
 
 .header .container {
@@ -65,8 +62,8 @@ body {
 }
 
 .logo:hover {
-    color: var(--color-accent-green); /* Green on hover for logo */
-    text-shadow: 0 0 15px var(--color-accent-green-alpha-80); /* Stronger green glow */
+    color: var(--color-accent-green);
+    text-shadow: 0 0 15px rgba(0, 255, 153, 0.8);
 }
 
 .nav a {
@@ -87,22 +84,21 @@ body {
     height: 3px;
     bottom: -10px;
     left: 0;
-    background: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-green)); /* Gradient underline */
+    background: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-green));
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
     transition: width 0.3s ease-out;
 }
 
 .nav a:hover {
-    color: var(--color-accent-green); /* Green on hover for links */
+    color: var(--color-accent-green);
     transform: translateY(-4px);
-    text-shadow: 0 0 8px var(--color-accent-green-alpha-60);
+    text-shadow: 0 0 8px rgba(0, 255, 153, 0.6);
 }
 
 .nav a:hover::after {
     width: 100%;
 }
 
-/* Hero Section */
 .hero {
     background: radial-gradient(circle at top left, #1a2a3a, #0d1117);
     padding: 150px 20px 120px;
@@ -117,7 +113,6 @@ body {
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
 }
 
-/* Animated background for the hero section - Cyber Grid & Particles */
 .hero::before, .hero::after {
     content: '';
     position: absolute;
@@ -129,19 +124,18 @@ body {
     pointer-events: none;
 }
 
-/* Cyber Grid Effect */
 .hero::before {
     background: 
         linear-gradient(to right, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 40px 40px;
     animation: gridPulse 8s infinite alternate, gridScan 20s linear infinite;
-    opacity: 0.8; /* Make grid slightly more visible */
+    opacity: 0.8;
 }
 
 @keyframes gridPulse {
     0% { background-color: rgba(0, 255, 255, 0.0); }
-    50% { background-color: rgba(0, 255, 255, 0.015); } /* Slightly stronger pulse */
+    50% { background-color: rgba(0, 255, 255, 0.015); }
     100% { background-color: rgba(0, 255, 255, 0.0); }
 }
 
@@ -150,10 +144,9 @@ body {
     100% { background-position: 100% 100%; }
 }
 
-/* Subtle Particle/Data Stream Effect (using a second pseudo-element) */
 .hero::after {
     background: radial-gradient(circle at center, rgba(0, 255, 153, 0.1) 0%, transparent 70%);
-    animation: radialPulse 15s ease-in-out infinite alternate; /* Pulsing radial glow */
+    animation: radialPulse 15s ease-in-out infinite alternate;
     opacity: 0.5;
 }
 
@@ -163,50 +156,48 @@ body {
     100% { transform: scale(0.8); opacity: 0.5; }
 }
 
-
 .hero-content {
     max-width: 900px;
     margin: 0 auto;
-    z-index: 1; /* Ensure content is above the background animation */
-    position: relative; /* Establish stacking context for z-index */
+    z-index: 1;
+    position: relative;
     animation: fadeIn 1s ease-out forwards;
 }
 
 .hero-photo {
-    width: 260px; /* Larger photo */
+    width: 260px;
     height: 260px;
     border-radius: 50%;
     object-fit: cover;
-    border: 8px solid var(--color-accent-blue); /* Neon border */
+    border: 8px solid var(--color-accent-blue);
     box-shadow: 
-        0 0 30px var(--color-accent-blue), /* Primary glow */
-        0 0 60px rgba(0, 255, 153, 0.5), /* Secondary green glow */
-        inset 0 0 20px rgba(0, 255, 153, 0.4); /* Inner green glow */
+        0 0 30px var(--color-accent-blue),
+        0 0 60px rgba(0, 255, 153, 0.5),
+        inset 0 0 20px rgba(0, 255, 153, 0.4);
     margin-bottom: 50px;
-    animation: glowPulse 3s ease-in-out infinite alternate, scaleIn 0.8s ease-out forwards; /* Combined glow and initial scale */
+    animation: glowPulse 3s ease-in-out infinite alternate, scaleIn 0.8s ease-out forwards;
 }
 
 @keyframes glowPulse {
     0% {
         box-shadow: 
-            0 0 30px var(--color-accent-blue), 
-            0 0 60px rgba(0, 255, 153, 0.5), 
+            0 0 30px var(--color-accent-blue),
+            0 0 60px rgba(0, 255, 153, 0.5),
             inset 0 0 20px rgba(0, 255, 153, 0.4);
     }
     50% {
         box-shadow: 
-            0 0 45px var(--color-accent-blue), /* Stronger primary glow */
-            0 0 90px rgba(0, 255, 153, 0.7), /* Stronger secondary glow */
+            0 0 45px var(--color-accent-blue),
+            0 0 90px rgba(0, 255, 153, 0.7),
             inset 0 0 30px rgba(0, 255, 153, 0.6);
     }
     100% {
         box-shadow: 
-            0 0 30px var(--color-accent-blue), 
-            0 0 60px rgba(0, 255, 153, 0.5), 
+            0 0 30px var(--color-accent-blue),
+            0 0 60px rgba(0, 255, 153, 0.5),
             inset 0 0 20px rgba(0, 255, 153, 0.4);
     }
 }
-
 
 .hero h1 {
     font-family: var(--font-heading);
@@ -214,7 +205,7 @@ body {
     color: #ffffff;
     margin-bottom: 25px;
     font-weight: 800;
-    text-shadow: 0 0 15px var(--color-accent-blue); /* Stronger text glow */
+    text-shadow: 0 0 15px var(--color-accent-blue);
 }
 
 .hero h1 .highlight {
@@ -252,7 +243,6 @@ body {
     overflow: hidden;
 }
 
-/* Button hover effects */
 .hero-actions .btn::before {
     content: '';
     position: absolute;
@@ -276,15 +266,15 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: var(--color-accent-green); /* Primary button turns green on hover */
+    background-color: var(--color-accent-green);
     border-color: var(--color-accent-green);
     transform: translateY(-7px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 255, 153, 0.5); /* Green glow */
+    box-shadow: 0 10px 30px rgba(0, 255, 153, 0.5);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--color-accent-green); /* Secondary button is green */
+    color: var(--color-accent-green);
     border: 2px solid var(--color-accent-green);
     text-shadow: 0 0 5px rgba(0, 255, 153, 0.3);
 }
@@ -294,29 +284,27 @@ body {
     color: var(--color-background-dark);
     border-color: var(--color-accent-green);
     transform: translateY(-7px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 255, 153, 0.5); /* Green glow */
+    box-shadow: 0 10px 30px rgba(0, 255, 153, 0.5);
 }
 
-/* Sections General */
 .section {
     padding: 100px 0;
     background-color: var(--color-background-medium);
     margin-bottom: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border: 1px solid rgba(0, 255, 255, 0.2); /* Subtle blue accent border */
+    border: 1px solid rgba(0, 255, 255, 0.2);
     position: relative;
-    overflow: hidden; /* For inner glow */
+    overflow: hidden;
 }
 
-/* Inner glow effect for sections with gradient */
 .section::before {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: 15px;
     padding: 2px;
-    background: linear-gradient(45deg, var(--color-accent-blue), var(--color-accent-green)); /* Blue-green gradient border */
+    background: linear-gradient(45deg, var(--color-accent-blue), var(--color-accent-green));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -324,23 +312,22 @@ body {
     pointer-events: none;
 }
 
-
 .section h2 {
     font-family: var(--font-heading);
-    font-size: 3.5rem; /* Slightly larger titles */
+    font-size: 3.5rem;
     color: var(--color-accent-blue);
     text-align: center;
     margin-bottom: 70px;
     position: relative;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Stronger title glow */
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
 .section h2::after {
     content: '';
     width: 100px;
     height: 5px;
-    background: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-green)); /* Gradient underline */
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); /* Stronger glow for line */
+    background: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-green));
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
     position: absolute;
     bottom: -20px;
     left: 50%;
@@ -348,7 +335,6 @@ body {
     border-radius: 3px;
 }
 
-/* About Section Specifics */
 .about-section p {
     font-family: var(--font-body);
     font-size: 1.25rem;
@@ -356,18 +342,17 @@ body {
     margin: 0 auto 50px;
     text-align: center;
     color: var(--color-text-secondary-grey);
-    text-shadow: 0 0 3px rgba(0, 255, 255, 0.15); /* Subtle cyber text shadow */
+    text-shadow: 0 0 3px rgba(0, 255, 255, 0.15);
 }
 
-/* Skills Section (Tags) */
 .skills-container h3 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
-    color: var(--color-accent-green); /* Green for skill category titles */
+    color: var(--color-accent-green);
     margin-top: 60px;
     margin-bottom: 35px;
     text-align: center;
-    text-shadow: 0 0 10px rgba(0, 255, 153, 0.5); /* Green title glow */
+    text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
 }
 
 .skills-list {
@@ -382,13 +367,13 @@ body {
 }
 
 .skill-tag {
-    background-color: var(--color-background-dark); /* Dark background for tags */
+    background-color: var(--color-background-dark);
     padding: 15px 30px;
     border-radius: 35px;
     font-family: var(--font-mono);
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--color-accent-blue); /* Blue text for tags */
+    color: var(--color-accent-blue);
     white-space: nowrap;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), inset 0 0 8px rgba(0, 255, 255, 0.1);
@@ -397,13 +382,122 @@ body {
 }
 
 .skill-tag:hover {
-    background-color: rgba(0, 255, 153, 0.1); /* Greenish background on hover */
+    background-color: rgba(0, 255, 153, 0.1);
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 0 25px rgba(0, 255, 153, 0.6), inset 0 0 12px rgba(0, 255, 153, 0.3); /* Stronger green glow */
-    color: var(--color-accent-green); /* Green text on hover */
+    box-shadow: 0 0 25px rgba(0, 255, 153, 0.6), inset 0 0 12px rgba(0, 255, 153, 0.3);
+    color: var(--color-accent-green);
 }
 
-/* Experience & Certifications & Projects Items (General Styling) */
+.featured-badge {
+    text-align: center;
+    margin: 40px 0 60px;
+    padding: 50px 30px;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 153, 255, 0.05) 100%);
+    border-radius: 20px;
+    border: 2px solid rgba(0, 255, 136, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 255, 136, 0.15), inset 0 0 30px rgba(0, 255, 136, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-badge::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+    animation: badgeGlow 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes badgeGlow {
+    0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+    50% { transform: translate(10%, 10%); opacity: 0.6; }
+}
+
+.featured-badge h3 {
+    margin-bottom: 30px;
+    color: var(--color-accent-green);
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+    position: relative;
+    z-index: 1;
+}
+
+.badge-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.badge-wrapper iframe {
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: rgba(13, 17, 23, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.achievement-item {
+    background-color: var(--color-background-dark);
+    padding: 40px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    position: relative;
+}
+
+.achievement-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 20px rgba(0, 255, 255, 0.3);
+    border-color: var(--color-accent-green);
+}
+
+.achievement-item h3 {
+    font-family: var(--font-heading);
+    color: var(--color-accent-blue);
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.achievement-item p {
+    color: var(--color-text-secondary-grey);
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    margin-bottom: 10px;
+}
+
+.achievement-item a {
+    font-family: var(--font-mono);
+    color: var(--color-accent-green);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: 2px solid var(--color-accent-green);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 255, 153, 0.4);
+}
+
+.achievement-item a:hover {
+    background-color: var(--color-accent-green);
+    color: var(--color-background-dark);
+    border-color: var(--color-accent-green);
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.8);
+    transform: scale(1.02);
+}
+
 .experience-item, .certification-item, .project-item {
     background-color: var(--color-background-dark);
     padding: 40px;
@@ -412,13 +506,13 @@ body {
     box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     border: 1px solid rgba(0, 255, 255, 0.2);
-    position: relative; /* For background pseudo-element if needed */
+    position: relative;
 }
 
 .experience-item:hover, .certification-item:hover, .project-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 20px rgba(0, 255, 255, 0.3);
-    border-color: var(--color-accent-green); /* Green highlight border on hover */
+    border-color: var(--color-accent-green);
 }
 
 .experience-item h3, .certification-item h3, .project-item h3 {
@@ -453,8 +547,8 @@ body {
 }
 
 .experience-item ul li::before {
-    content: '>>'; /* Hacker-style bullet */
-    color: var(--color-accent-green); /* Neon green bullet */
+    content: '>>';
+    color: var(--color-accent-green);
     position: absolute;
     left: 0;
     font-size: 1em;
@@ -464,7 +558,7 @@ body {
 
 .certification-item a, .project-item a {
     font-family: var(--font-mono);
-    color: var(--color-accent-green); /* Green for links in items */
+    color: var(--color-accent-green);
     text-decoration: none;
     font-weight: 600;
     display: inline-block;
@@ -484,7 +578,6 @@ body {
     transform: scale(1.02);
 }
 
-/* Direct Contact Section */
 .contact-details-section {
     text-align: center;
     margin-top: 100px;
@@ -508,7 +601,7 @@ body {
 }
 
 .contact-details-section a {
-    color: var(--color-accent-green); /* Green for contact links */
+    color: var(--color-accent-green);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -516,12 +609,11 @@ body {
 }
 
 .contact-details-section a:hover {
-    color: var(--color-accent-blue); /* Blue on hover */
+    color: var(--color-accent-blue);
     text-decoration: underline;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
 }
 
-/* Contact Form Specifics */
 .contact-form {
     background: var(--color-background-medium);
     padding: 50px;
@@ -531,7 +623,7 @@ body {
     margin: 0 auto;
     border: 1px solid rgba(0, 255, 255, 0.3);
     position: relative;
-    overflow: hidden; /* For inner glow */
+    overflow: hidden;
 }
 
 .contact-form::before {
@@ -547,7 +639,6 @@ body {
     mask-composite: exclude;
     pointer-events: none;
 }
-
 
 .contact-form h2 {
     color: var(--color-accent-blue);
@@ -571,26 +662,27 @@ body {
 
 .form-group input, .form-group textarea {
     background-color: var(--color-background-dark);
-    color: var(--color-accent-green); /* Green text in inputs */
+    color: var(--color-accent-green);
     padding: 16px;
-    border: 1px solid rgba(0, 255, 153, 0.5); /* Greenish border */
+    width: 100%;
+    border: 1px solid rgba(0, 255, 153, 0.5);
     border-radius: 8px;
     font-family: var(--font-mono);
     font-size: 1.05rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     box-sizing: border-box;
-    caret-color: var(--color-accent-green); /* Neon green cursor */
+    caret-color: var(--color-accent-green);
 }
 
 .form-group input:focus, .form-group textarea:focus {
     border-color: var(--color-accent-green);
     box-shadow: 0 0 0 5px rgba(0, 255, 153, 0.3), 0 0 20px rgba(0, 255, 153, 0.5);
     outline: none;
-    background-color: #12212f; /* Slightly lighter dark on focus */
+    background-color: #12212f;
 }
 
 .contact-form button {
-    background-color: var(--color-accent-green); /* Green submit button */
+    background-color: var(--color-accent-green);
     color: var(--color-background-dark);
     font-weight: 700;
     font-size: 1.3rem;
@@ -605,13 +697,11 @@ body {
 }
 
 .contact-form button:hover {
-    background-color: var(--color-accent-blue); /* Blue on hover for submit */
+    background-color: var(--color-accent-blue);
     transform: translateY(-5px);
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
 }
 
-
-/* Responsive Design - Using CSS variables */
 @media (max-width: 768px) {
     .header .container {
         flex-direction: column;
@@ -626,10 +716,10 @@ body {
     }
     .hero {
         padding: 100px 15px 80px;
-        min-height: 70vh; /* Adjust min-height for smaller screens */
+        min-height: 70vh;
     }
     .hero-photo {
-        width: 200px; /* Slightly smaller photo on tablets */
+        width: 200px;
         height: 200px;
         margin-bottom: 40px;
     }
@@ -640,16 +730,6 @@ body {
         font-size: 1.2rem;
         margin-bottom: 40px;
     }
-    .hero-actions {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .hero-actions .btn {
-        width: 90%;
-        margin: 0 auto;
-        padding: 15px 30px;
-        font-size: 1.1rem;
-    }
     .section {
         padding: 70px 0;
     }
@@ -657,73 +737,25 @@ body {
         font-size: 2.5rem;
         margin-bottom: 50px;
     }
-    .about-section p {
-        font-size: 1.1rem;
-        margin-bottom: 40px;
+    .featured-badge h3 {
+        font-size: 1.4rem;
     }
-    .skills-container h3 {
-        font-size: 2rem;
-        margin-top: 40px;
-        margin-bottom: 25px;
+    .badge-wrapper iframe {
+        height: 320px;
     }
-    .skills-list {
-        justify-content: center; /* Keep centered on tablets unless explicitly left-aligned */
-        padding: 0 10px;
+}badge {
+        padding: 35px 20px;
+        margin: 30px 0 50px;
     }
-    .skill-tag {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-    .experience-item, .certification-item, .project-item {
-        padding: 25px;
-    }
-    .experience-item h3, .certification-item h3, .project-item h3 {
+    .featured-badge h3 {
         font-size: 1.6rem;
     }
-    .experience-item ul li {
-        font-size: 1rem;
-        padding-left: 25px;
-    }
-    .certification-item a, .project-item a {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-    .contact-details-section {
-        margin-top: 70px;
-        padding-top: 30px;
-    }
-    .contact-details-section h3 {
-        font-size: 2rem;
-    }
-    .contact-details-section p {
-        font-size: 1.1rem;
-    }
-    .contact-form {
-        padding: 35px 25px;
-        max-width: 90%; /* Adjust width for smaller screens */
-    }
-    .contact-form h2 {
-        font-size: 2.2rem;
-    }
-    .form-group {
-        margin-bottom: 20px;
-    }
-    .form-group label {
-        font-size: 1.05rem;
-    }
-    .form-group input, .form-group textarea {
-        padding: 12px;
-    }
-    .contact-form button {
-        padding: 14px;
-        font-size: 1.1rem;
+    .badge-wrapper iframe {
+        height: 350px;
     }
 }
 
 @media (max-width: 480px) {
-    .header {
-        padding: 15px 0;
-    }
     .logo {
         font-size: 1.8rem;
     }
@@ -738,76 +770,21 @@ body {
     .hero h1 {
         font-size: 2.8rem;
     }
-    .hero-summary {
-        font-size: 1.1rem;
-        margin-bottom: 40px;
-    }
     .hero-photo {
-        width: 180px; /* Even smaller on mobile */
+        width: 180px;
         height: 180px;
-        margin-bottom: 40px;
-    }
-    .hero-actions .btn {
-        font-size: 1rem;
-        padding: 12px 25px;
-    }
-    .section {
-        padding: 50px 0;
     }
     .section h2 {
         font-size: 2rem;
-        margin-bottom: 40px;
     }
-    .about-section p {
-        font-size: 1rem;
-        margin-bottom: 30px;
+    .featured-badge {
+        padding: 25px 15px;
     }
-    .skills-container h3 {
-        font-size: 1.8rem;
-        margin-top: 40px;
-        margin-bottom: 25px;
+    .featured-
+    badge h3 {
+        font-size: 1.4rem;
     }
-    .skill-tag {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
-    .experience-item, .certification-item, .project-item {
-        padding: 20px;
-    }
-    .experience-item h3, .certification-item h3, .project-item h3 {
-        font-size: 1.5rem;
-    }
-    .experience-item ul li {
-        font-size: 0.95rem;
-        padding-left: 25px;
-    }
-    .contact-details-section {
-        margin-top: 70px;
-        padding-top: 30px;
-    }
-    .contact-details-section h3 {
-        font-size: 1.8rem;
-    }
-    .contact-details-section p {
-        font-size: 1rem;
-    }
-    .contact-form {
-        padding: 30px 20px;
-    }
-    .contact-form h2 {
-        font-size: 2rem;
-    }
-    .form-group {
-        margin-bottom: 20px;
-    }
-    .form-group label {
-        font-size: 1rem;
-    }
-    .form-group input, .form-group textarea {
-        padding: 10px;
-    }
-    .contact-form button {
-        padding: 12px;
-        font-size: 1.05rem;
+    .badge-wrapper iframe {
+        height: 320px;
     }
 }
